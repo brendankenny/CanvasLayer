@@ -31,6 +31,8 @@
       var pixelsToWebGLMatrix = new Float32Array(16);
       var mapMatrix = new Float32Array(16);
 
+      var resolutionScale = window.devicePixelRatio || 1;
+
       function init() {
         // initialize the map
         var mapOptions = {
@@ -56,7 +58,8 @@
           map: map,
           resizeHandler: resize,
           animate: false,
-          updateHandler: update
+          updateHandler: update,
+          resolutionScale: resolutionScale
         };
         canvasLayer = new CanvasLayer(canvasLayerOptions);
 
@@ -122,9 +125,16 @@
 
         gl.viewport(0, 0, width, height);
 
-        // matrix which maps pixel coordinates to WebGL coordinates
-        pixelsToWebGLMatrix.set([2/width, 0, 0, 0, 0, -2/height, 0, 0,
-            0, 0, 0, 0, -1, 1, 0, 1]);
+        // Matrix which maps pixel coordinates to WebGL coordinates.
+        // If canvasLayer is scaled (with resolutionScale), we need to scale
+        // this matrix by the same amount to account for the larger number of
+        // pixels.
+        pixelsToWebGLMatrix.set([
+          2 * resolutionScale / width, 0, 0, 0,
+          0, -2 * resolutionScale / height, 0, 0,
+          0, 0, 0, 0,
+          -1, 1, 0, 1
+        ]);
       }
 
       function scaleMatrix(matrix, scaleX, scaleY) {
