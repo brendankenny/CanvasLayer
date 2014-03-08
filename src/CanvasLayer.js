@@ -475,16 +475,21 @@ CanvasLayer.prototype.repositionCanvas_ = function() {
   //     this causes noticeable hitches in map and overlay relative
   //     positioning.
 
-  var bounds = this.getMap().getBounds();
+  var map = this.getMap();
+  var bounds = map.getBounds();
   this.topLeft_ = new google.maps.LatLng(bounds.getNorthEast().lat(),
       bounds.getSouthWest().lng());
 
-  // canvas position relative to draggable map's conatainer depends on
-  // overlayView's projection, not the map's
+  // Canvas position relative to draggable map's container depends on
+  // overlayView's projection, not the map's. Have to use the center of the map
+  // as the bounds are clamped to -180, 180 (see reference for map.getBounds.
   var projection = this.getProjection();
-  var divTopLeft = projection.fromLatLngToDivPixel(this.topLeft_);
+  var center = map.getCenter();
+  var divCenter = projection.fromLatLngToDivPixel(center);
+  var offsetX = -Math.round(this.canvasCssWidth_ / 2 - divCenter.x);
+  var offsetY = -Math.round(this.canvasCssHeight_ / 2 - divCenter.y);
   this.canvas.style[CanvasLayer.CSS_TRANSFORM_] = 'translate(' +
-      Math.round(divTopLeft.x) + 'px,' + Math.round(divTopLeft.y) + 'px)';
+      offsetX + 'px,' + offsetY + 'px)';
 
   this.scheduleUpdate();
 };
