@@ -56,6 +56,15 @@ CanvasLayerOptions.prototype.paneName;
 CanvasLayerOptions.prototype.resizeHandler;
 
 /**
+ * A value for scaling the CanvasLayer resolution relative to the CanvasLayer
+ * display size. This can be used to save computation by scaling the backing
+ * buffer down, or to support high DPI devices by scaling it up (by e.g.
+ * window.devicePixelRatio).
+ * @type {number}
+ */
+CanvasLayerOptions.prototype.resolutionScale;
+
+/**
  * A function that is called when a repaint of the canvas is required.
  * @type {function}
  */
