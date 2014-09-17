@@ -7,6 +7,8 @@ A library for adding a `<canvas>` layer to a Google Maps JavaScript API v3 map a
 
 ## Live Examples
 
+[![CanvasLayer WebGL Screenshot](https://brendankenny.github.io/CanvasLayer/screenshot.png)](https://brendankenny.github.io/CanvasLayer/examples/hello_webgl.html)
+
 * [Canvas 2d Example](https://brendankenny.github.io/CanvasLayer/examples/hello2d.html)
 * [WebGL Example](https://brendankenny.github.io/CanvasLayer/examples/hello_webgl.html)
 
