@@ -1,6 +1,6 @@
 CanvasLayer – A Google Maps API utility library
 ===========
-A library for adding a `<canvas>` layer to a Google Maps JavaScript API v3 map and a small API for efficiently using it to visualize data using the [2d canvas API](https://developer.mozilla.org/en-US/docs/Web/HTML/Canvas) or WebGL.
+A library for adding a `<canvas>` layer to a Google Maps JavaScript API v3 map and a small API for efficiently using it to visualize data using the [2d canvas API](https://developer.mozilla.org/en-US/docs/Web/HTML/Canvas) or [WebGL](http://get.webgl.org/).
 ![Analytics](https://ga-beacon.appspot.com/UA-12846745-20/canvaslayer/readme?pixel)
 
 [Reference documentation](https://brendankenny.github.io/CanvasLayer/docs/reference.html)
