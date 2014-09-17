@@ -33,12 +33,13 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           styles: [
             {
-              featureType: 'water',
-              stylers: [{ color: '#c3cfdd'}]
-            },
-            {
-              featureType: 'poi',
-              stylers: [{visibility: 'off'}]
+              stylers: [{saturation: -85}]
+            }, {
+              featureType: "water",
+              elementType: "geometry",
+              stylers: [
+                { lightness: -20 }
+              ]
             }
           ]
         };
@@ -67,8 +68,8 @@
         var canvasHeight = canvasLayer.canvas.height;
         context.clearRect(0, 0, canvasWidth, canvasHeight);
 
-        // we like our rectangles green
-        context.fillStyle = 'rgba(0, 255, 0, 1)';
+        // we like our rectangles hideous
+        context.fillStyle = 'rgba(230, 77, 26, 1)';
         
         /* We need to scale and translate the map for current view.
          * see https://developers.google.com/maps/documentation/javascript/maptypes#MapCoordinates

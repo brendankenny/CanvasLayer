@@ -42,12 +42,13 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           styles: [
             {
-              featureType: 'water',
-              stylers: [{ color: '#c3cfdd'}]
-            },
-            {
-              featureType: 'poi',
-              stylers: [{visibility: 'off'}]
+              stylers: [{saturation: -85}]
+            }, {
+              featureType: "water",
+              elementType: "geometry",
+              stylers: [
+                { lightness: -20 }
+              ]
             }
           ]
         };
@@ -212,8 +213,8 @@
       precision mediump float;
 
       void main() {
-        // set pixels in points to green
-        gl_FragColor = vec4(.1, .8, 0.08, 1.);
+        // set pixels in points to something that stands out
+        gl_FragColor = vec4(.9, .3, .1, 1.);
       }
     </script>
   </head>
