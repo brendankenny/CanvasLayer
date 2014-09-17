@@ -7,6 +7,8 @@ A library for adding a `<canvas>` layer to a Google Maps JavaScript API v3 map a
 
 ## Live Examples
 
+Two simple examples are provided, demonstrating methods to integrate CanvasLayer with the 2d canvas API and WebGL, respectively. CanvasLayer exposes the raw `<canvas>` DOM element directly, however, so it can be used with *any* library that renders to a `<canvas>` element. See the examples for two possible ways of keeping the rendered content and the underlying map in sync.
+
 [![CanvasLayer WebGL Screenshot](https://brendankenny.github.io/CanvasLayer/screenshot.png)](https://brendankenny.github.io/CanvasLayer/examples/hello_webgl.html)
 
 * [Canvas 2d Example](https://brendankenny.github.io/CanvasLayer/examples/hello2d.html)
