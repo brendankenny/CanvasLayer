@@ -382,7 +382,7 @@ CanvasLayer.prototype.onAdd = function() {
   this.setPane_();
 
   this.resizeListener_ = google.maps.event.addListener(this.getMap(),
-      'resize', this.resizeFunction_);
+      'bounds_changed', this.resizeFunction_);
   this.centerListener_ = google.maps.event.addListener(this.getMap(),
       'center_changed', this.repositionFunction_);
 
