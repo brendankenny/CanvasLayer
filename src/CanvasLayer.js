@@ -490,9 +490,16 @@ CanvasLayer.prototype.repositionCanvas_ = function() {
   // overlayView's projection, not the map's. Have to use the center of the
   // map for this, not the top left, for the same reason as above.
   var projection = this.getProjection();
-  var divCenter = projection.fromLatLngToDivPixel(center);
-  var offsetX = -Math.round(this.canvasCssWidth_ / 2 - divCenter.x);
-  var offsetY = -Math.round(this.canvasCssHeight_ / 2 - divCenter.y);
+  var halfW = this.canvasCssWidth_ / 2;
+  var halfH = this.canvasCssHeight_ / 2;
+  var divCenter = projection.fromLatLngToDivPixel(
+    projection.fromContainerPixelToLatLng({
+      x: halfW,
+      y: halfH
+    })
+  );
+  var offsetX = -Math.round(halfW - divCenter.x);
+  var offsetY = -Math.round(halfH - divCenter.y);
   this.canvas.style[CanvasLayer.CSS_TRANSFORM_] = 'translate(' +
       offsetX + 'px,' + offsetY + 'px)';
 

@@ -102,6 +102,7 @@
       }
 
       document.addEventListener('DOMContentLoaded', init, false);
+      window.addEventListener('resize', function(){ google.maps.event.trigger(map, 'resize'); });
     </script>
   </head>
 
